@@ -1,0 +1,9 @@
+{
+  "name": "integrating-rabbitmq-and-postgresql",
+  "version": "1.0.0",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "pg": "^8.8.0",
+    "pg-listen": "^1.7.0"
+  }
+}
