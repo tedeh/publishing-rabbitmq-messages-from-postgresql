@@ -49,6 +49,10 @@ async function popOneQueueMessage (deps, id) {
       console.error(err);
     });
 
+    // if (Math.random() > 0.9) {
+    //   throw new Error(`random publish error!`);
+    // }
+
     const str = JSON.stringify(content);
     await ch.publish(exchange, routing_key, Buffer.from(str), options);
     await ch.waitForConfirms();

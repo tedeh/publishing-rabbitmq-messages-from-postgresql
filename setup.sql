@@ -11,13 +11,15 @@ CREATE TABLE IF NOT EXISTS queue_message (
 DROP FUNCTION IF EXISTS queue_message_notify() CASCADE;
 CREATE OR REPLACE FUNCTION queue_message_notify() RETURNS TRIGGER AS $$
 BEGIN
-    PERFORM pg_notify('queue_message_notify', jsonb_build_object('id', NEW.id::text)::text);
+    PERFORM pg_notify(
+      'queue_message_notify',
+      jsonb_build_object('id', NEW.id::text)::text
+    );
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS tgr_queue_message_after_insert ON queue_message;
-DROP TRIGGER IF EXISTS queue_message_notify ON queue_message;
-CREATE TRIGGER queue_message_notify
+DROP TRIGGER IF EXISTS do_notify ON queue_message;
+CREATE TRIGGER do_notify
 AFTER INSERT ON queue_message
 FOR EACH ROW EXECUTE PROCEDURE queue_message_notify();
