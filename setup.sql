@@ -1,5 +1,6 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
+DROP TABLE IF EXISTS queue_message;
 CREATE TABLE IF NOT EXISTS queue_message (
   id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
   exchange text NOT NULL,

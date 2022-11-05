@@ -18,7 +18,7 @@ async function run () {
   });
   console.log('listening on queue_message_notify');
 
-  const result = await pg.query(`SELECT id, content FROM queue_message`);
+  const result = await pg.query(`SELECT id FROM queue_message`);
   for (const row of result.rows) {
     await popOneQueueMessage({pg, amqp}, row.id);
   }
