@@ -1,7 +1,3 @@
-# integrating-rabbitmq-and-postgresql
+# publishing-rabbitmq-messages-from-postgresql
 
-The article accompanying this repository was posted on tedeh.net here: https://tedeh.net/publishing-and-receiving-rabbitmq-messages-in-postgresql
-
-## How to run
-
-
+The article accompanying this repository was posted on [tedeh.net](https://tedeh.net) here: https://tedeh.net/publishing-rabbitmq-messages-from-postgresql/
