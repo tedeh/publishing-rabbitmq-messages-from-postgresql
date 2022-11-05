@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "amqplib": "^0.10.3",
+    "delay": "^5.0.0",
     "pg": "^8.8.0",
     "pg-format": "^1.0.4",
     "pg-listen": "^1.7.0"

@@ -17,6 +17,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 DROP TRIGGER IF EXISTS tgr_queue_message_after_insert ON queue_message;
-CREATE TRIGGER tgr_queue_message_after_insert
+DROP TRIGGER IF EXISTS queue_message_notify ON queue_message;
+CREATE TRIGGER queue_message_notify
 AFTER INSERT ON queue_message
 FOR EACH ROW EXECUTE PROCEDURE queue_message_notify();
